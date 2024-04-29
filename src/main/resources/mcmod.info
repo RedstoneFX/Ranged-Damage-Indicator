@@ -1,0 +1,16 @@
+[
+{
+  "modid": "hitcrosshair",
+  "name": "Hit Crosshair",
+  "description": "A mod, modifying crosshair, when your projectile hits entity.",
+  "version": "1.0.0",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["SilverCD"],
+  "credits": "https://vk.com/silverc",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
