@@ -55,22 +55,15 @@ public class HitCrosshair
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
-    public void onScreenUpdate(RenderGameOverlayEvent.Pre event) {
-        if (event.getType() == RenderGameOverlayEvent.ElementType.CROSSHAIRS) {
-            Minecraft mc = Minecraft.getMinecraft();
-            ScaledResolution scaledresolution = new ScaledResolution(mc);
-            int l = scaledresolution.getScaledWidth();
-            int i1 = scaledresolution.getScaledHeight();
-            //logger.info(String.valueOf(l) + " " + String.valueOf(i1));
+    public void onScreenUpdate(RenderGameOverlayEvent.Post event) {
+        if(event.getType() == RenderGameOverlayEvent.ElementType.HOTBAR)
             if(counter>0) {
-                Minecraft.getMinecraft().getTextureManager().bindTexture(hitCrosshair); // Биндим текстурку
                 int x = event.getResolution().getScaledWidth() / 2 - 15; // Получаем ширину экрана, делим её пополам и вычитаем 15
                 int y = event.getResolution().getScaledHeight() / 2 - 15; // Получаем высоту экрана, делим её пополам и вычитаем 15
-                Minecraft.getMinecraft().ingameGUI.drawTexturedModalRect(x, y, 0, 0, 32, 32);
+                mc.getTextureManager().bindTexture(hitCrosshair);
+                mc.ingameGUI.drawTexturedModalRect(x, y, 0, 0, 32, 32);
                 counter--;
-                event.setCanceled(true);
             }
-        }
     }
 
     @SubscribeEvent
